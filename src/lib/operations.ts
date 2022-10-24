@@ -11,7 +11,7 @@ export async function getEntry(id) {
 }
 
 fragment component on Component {
-  key
+  label
   value
 }
 
