@@ -5,23 +5,91 @@ export async function getEntry(id) {
   entry(id: $id) {
     id
     value {
-      PRS {
-        S1 {
-          person1 {
-            key
-            value
-          }
-          root {
-            key
-            value
-          }
-          person2 {
-            key
-            value
-          }
-        }
-      }
+      ...table
     }
+  }
+}
+
+fragment component on Component {
+  key
+  value
+}
+
+fragment form on Form {
+  preverb {
+    ...component
+  }
+  person1 {
+    ...component
+  }
+  version {
+    ...component
+  }
+  root {
+    ...component
+  }
+  thema {
+    ...component
+  }
+  person2 {
+    ...component
+  }
+}
+
+fragment screeve on Screeve {
+  S1 {
+    ...form
+  }
+  S2 {
+    ...form
+  }
+  S3 {
+    ...form
+  }
+  P1 {
+    ...form
+  }
+  P2 {
+    ...form
+  }
+  P3 {
+    ...form
+  }
+}
+
+fragment table on Table {
+  PRS {
+    ...screeve
+  }
+  IMPF {
+    ...screeve
+  }
+  PRSSUBJ {
+    ...screeve
+  }
+  FUT {
+    ...screeve
+  }
+  COND {
+    ...screeve
+  }
+  FUTSUBJ {
+    ...screeve
+  }
+  AOR {
+    ...screeve
+  }
+  OPT {
+    ...screeve
+  }
+  PERF {
+    ...screeve
+  }
+  PLUPERF {
+    ...screeve
+  }
+  PERFSUBJ {
+    ...screeve
   }
 }`;
 
