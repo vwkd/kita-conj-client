@@ -47,7 +47,7 @@ function Entry({ id, value }) {
   );
 }
 
-function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF, PERFSUBJ }) {
+function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF, PERFSUBJ, AORIMPF, OPTIMPF, PERFIMPF, PLUPERFIMPF, PERFSUBJIMPF, INF, INFIMPF }) {
   return (
     <div class="flex-col gap-3">
       <div class="flex-col gap-1">
@@ -68,13 +68,23 @@ function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF
       <div class="flex-col gap-1">
         <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
         <Screeve {...AOR} label="Aorist" />
+        <Screeve {...AORIMPF} label="Aorist Imperfective" />
         <Screeve {...OPT} label="Optative" />
+        <Screeve {...OPTIMPF} label="Optative Imperfective" />
       </div>
       <div class="flex-col gap-1">
         <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
         <Screeve {...PERF} label="Perfect" />
+        <Screeve {...PERFIMPF} label="Perfect Imperfective" />
         <Screeve {...PLUPERF} label="Pluperfect" />
+        <Screeve {...PLUPERFIMPF} label="Pluperfect Imperfective" />
         <Screeve {...PERFSUBJ} label="Perfect Subjunctive" />
+        <Screeve {...PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
+      </div>
+      <div class="flex-col gap-1">
+        <h2 class="text-lg font-semibold text-slate-500">Other</h2>
+        <Screeve {...INF} label="Infinitive" />
+        <Screeve {...INFIMPF} label="Infinitive Imperfective" />
       </div>
     </div>
   );
