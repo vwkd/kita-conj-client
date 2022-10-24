@@ -27,84 +27,88 @@ export const handler = {
 
 export default function Home({ data }) {
   return (
-    <div>
+    <body>
       <Head>
         <link rel="stylesheet" href="/reset.css" />
       </Head>
-      <main class="flex-1">
+      <main class="flex-1 flex-col">
         { data.value
           ? <Entry {...data} />
           : <p>No entry found.</p>
         }
       </main>
-    </div>
+    </body>
   );
 }
 
 function Entry({ id, value }) {
   return (
-    <>
-      <Table {...value} />    
-    </>
+    <Table {...value} />
   );
 }
 
 function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF, PERFSUBJ }) {
   return (
-    <>
-      <div>
-        <h2>Series 1</h2>
-        <div>
-          <h3>Group 1</h3>
-          <Screeve {...PRS} />
-          <Screeve {...IMPF} />
-          <Screeve {...PRSSUBJ} />
+    <div class="flex-col gap-3">
+      <div class="flex-col gap-1">
+        <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
+        <div class="flex-col gap-1">
+          <h3 class="font-semibold text-slate-500">Group 1</h3>
+          <Screeve {...PRS} label="Present" />
+          <Screeve {...IMPF} label="Imperfect" />
+          <Screeve {...PRSSUBJ} label="Present Subjunctive" />
         </div>
-        <div>
-          <h3>Group 2</h3>
-          <Screeve {...FUT} />
-          <Screeve {...COND} />
-          <Screeve {...FUTSUBJ} />
+        <div class="flex-col gap-1">
+          <h3 class="font-semibold text-slate-500">Group 2</h3>
+          <Screeve {...FUT} label="Future" />
+          <Screeve {...COND} label="Conditional" />
+          <Screeve {...FUTSUBJ} label="Future Subjunctive" />
         </div>
       </div>
-      <div>
-        <h2>Series 2</h2>
-        <Screeve {...AOR} />
-        <Screeve {...OPT} />
+      <div class="flex-col gap-1">
+        <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
+        <Screeve {...AOR} label="Aorist" />
+        <Screeve {...OPT} label="Optative" />
       </div>
-      <div>
-        <h2>Series 3</h2>
-        <Screeve {...PERF} />
-        <Screeve {...PLUPERF} />
-        <Screeve {...PERFSUBJ} />
+      <div class="flex-col gap-1">
+        <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
+        <Screeve {...PERF} label="Perfect" />
+        <Screeve {...PLUPERF} label="Pluperfect" />
+        <Screeve {...PERFSUBJ} label="Perfect Subjunctive" />
       </div>
-    </>
+    </div>
   );
 }
 
-function Screeve({ S1, S2, S3, P1, P2, P3 }) {
+function Screeve({ S1, S2, S3, P1, P2, P3, label }) {
   return (
-    <>
-      <Form {...S1} />
-      <Form {...S2} />
-      <Form {...S3} />
-      <Form {...P1} />
-      <Form {...P2} />
-      <Form {...P3} />
-    </>
+    <div class="flex-col gap-1">
+      <h4 class="text-sm font-semibold text-slate-500">{label}</h4>
+      <div class="flex-col">
+        <Form {...S1} label="S1" />
+        <Form {...S2} label="S2" />
+        <Form {...S3} label="S3" />
+        <Form {...P1} label="P1" />
+        <Form {...P2} label="P2" />
+        <Form {...P3} label="P3" />
+      </div>
+    </div>
   );
 }
 
-function Form({ preverb, person1, version, root, thema, person2 }) {
+function Form({ preverb, person1, version, root, thema, person2, label }) {
   return (
-    <>
-      <Component {...preverb} />
-      <Component {...person1} />
-      <Component {...version} />
-      <Component {...root} />
-      <Component {...thema} />
-      <Component {...person2} />
-    </>
+    <div class="gap-1 items-baseline">
+      <p class="text-sm font-semibold text-slate-500">{label}</p>
+      <p>
+        <Component {...preverb} />
+        <Component {...person1} />
+        <Component {...version} />
+        <Component {...root} />
+        <Component {...thema} />
+        <Component {...person2} />
+      </p>
+    </div>
   );
 }
 
