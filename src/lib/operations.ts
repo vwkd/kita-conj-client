@@ -79,16 +79,37 @@ fragment table on Table {
   AOR {
     ...screeve
   }
+  AORIMPF {
+    ...screeve
+  }
   OPT {
+    ...screeve
+  }
+  OPTIMPF {
     ...screeve
   }
   PERF {
     ...screeve
   }
+  PERFIMPF {
+    ...screeve
+  }
   PLUPERF {
     ...screeve
   }
+  PLUPERFIMPF {
+    ...screeve
+  }
   PERFSUBJ {
+    ...screeve
+  }
+  PERFSUBJIMPF {
+    ...screeve
+  }
+  INF {
+    ...screeve
+  }
+  INFIMPF {
     ...screeve
   }
 }`;
