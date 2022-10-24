@@ -112,7 +112,7 @@ function Form({ preverb, person1, version, root, thema, person2, label }) {
   );
 }
 
-function Component({ key, value }) {
+function Component({ label, value }) {
   if (value) {
     return (
       <span>{value}</span>
