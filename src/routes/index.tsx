@@ -12,10 +12,15 @@ export const handler = {
         headers: { location: "/" },
       });
     } else {
-      // TODO: error handling
-      const entry = await getEntry(id);
-
-      return ctx.render({ ...entry });
+      try { 
+        const entry = await getEntry(id);
+  
+        return ctx.render({ ...entry });
+      } catch (e) {
+        return new Response("Internal Server Error", {
+          status: 500,
+        });
+      }
     }
   },
 };
