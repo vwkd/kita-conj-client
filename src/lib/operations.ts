@@ -58,74 +58,88 @@ fragment screeve on Screeve {
 }
 
 fragment table on Table {
-  PRS {
-    ...screeve
+  SRS1 {
+    GRP1 {
+      PRS {
+        ...screeve
+      }
+      IMPF {
+        ...screeve
+      }
+      PRSSUBJ {
+        ...screeve
+      }
+    }
+    GRP2 {
+      FUT {
+        ...screeve
+      }
+      COND {
+        ...screeve
+      }
+      FUTSUBJ {
+        ...screeve
+      }
+    }
   }
-  IMPF {
-    ...screeve
+  SRS2 {
+    AOR {
+      ...screeve
+    }
+    AORIMPF {
+      ...screeve
+    }
+    OPT {
+      ...screeve
+    }
+    OPTIMPF {
+      ...screeve
+    }
   }
-  PRSSUBJ {
-    ...screeve
+  SRS3 {
+    PERF {
+      ...screeve
+    }
+    PERFIMPF {
+      ...screeve
+    }
+    PLUPERF {
+      ...screeve
+    }
+    PLUPERFIMPF {
+      ...screeve
+    }
+    PERFSUBJ {
+      ...screeve
+    }
+    PERFSUBJIMPF {
+      ...screeve
+    }
   }
-  FUT {
-    ...screeve
-  }
-  COND {
-    ...screeve
-  }
-  FUTSUBJ {
-    ...screeve
-  }
-  AOR {
-    ...screeve
-  }
-  AORIMPF {
-    ...screeve
-  }
-  OPT {
-    ...screeve
-  }
-  OPTIMPF {
-    ...screeve
-  }
-  PERF {
-    ...screeve
-  }
-  PERFIMPF {
-    ...screeve
-  }
-  PLUPERF {
-    ...screeve
-  }
-  PLUPERFIMPF {
-    ...screeve
-  }
-  PERFSUBJ {
-    ...screeve
-  }
-  PERFSUBJIMPF {
-    ...screeve
-  }
-  IMPAFF {
-    ...screeve
-  }
-  IMPAFFIMPF {
-    ...screeve
-  }
-  IMPPRB1 {
-    ...screeve
-  }
-  IMPPRB1IMPF {
-    ...screeve
-  }
-  IMPPRB2 {
-    ...screeve
+  IMP {
+    IMPAFF {
+      ...screeve
+    }
+    IMPAFFIMPF {
+      ...screeve
+    }
+    IMPPRB1 {
+      ...screeve
+    }
+    IMPPRB1IMPF {
+      ...screeve
+    }
+    IMPPRB2 {
+      ...screeve
+    }
   }
   INF {
-    ...screeve
-  }
-  INFIMPF {
-    ...screeve
+    INF {
+      ...screeve
+    }
+    INFIMPF {
+      ...screeve
+    }
   }
 }`;
 
