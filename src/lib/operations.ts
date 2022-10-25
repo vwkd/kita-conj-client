@@ -106,6 +106,21 @@ fragment table on Table {
   PERFSUBJIMPF {
     ...screeve
   }
+  IMPAFF {
+    ...screeve
+  }
+  IMPAFFIMPF {
+    ...screeve
+  }
+  IMPPRB1 {
+    ...screeve
+  }
+  IMPPRB1IMPF {
+    ...screeve
+  }
+  IMPPRB2 {
+    ...screeve
+  }
   INF {
     ...screeve
   }

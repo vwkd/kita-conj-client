@@ -47,7 +47,7 @@ function Entry({ id, value }) {
   );
 }
 
-function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF, PERFSUBJ, AORIMPF, OPTIMPF, PERFIMPF, PLUPERFIMPF, PERFSUBJIMPF, INF, INFIMPF }) {
+function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF, PERFSUBJ, AORIMPF, OPTIMPF, PERFIMPF, PLUPERFIMPF, PERFSUBJIMPF, IMPAFF, IMPAFFIMPF, IMPPRB1, IMPPRB1IMPF, IMPPRB2, INF, INFIMPF }) {
   return (
     <div class="flex-col gap-3">
       <div class="flex-col gap-1">
@@ -82,7 +82,15 @@ function Table({ PRS, IMPF, PRSSUBJ, FUT, COND, FUTSUBJ, AOR, OPT, PERF, PLUPERF
         <Screeve {...PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
       </div>
       <div class="flex-col gap-1">
-        <h2 class="text-lg font-semibold text-slate-500">Other</h2>
+        <h2 class="text-lg font-semibold text-slate-500">Imperative</h2>
+        <Screeve {...IMPAFF} label="Imperative Affirmative" />
+        <Screeve {...IMPAFFIMPF} label="Imperative Affirmative Imperfective" />
+        <Screeve {...IMPPRB1} label="Imperative Prohibitive 1" />
+        <Screeve {...IMPPRB1IMPF} label="Imperative Prohibitive 1 Imperfective" />
+        <Screeve {...IMPPRB2} label="Imperative Prohibitive 2" />
+      </div>
+      <div class="flex-col gap-1">
+        <h2 class="text-lg font-semibold text-slate-500">Infinitive</h2>
         <Screeve {...INF} label="Infinitive" />
         <Screeve {...INFIMPF} label="Infinitive Imperfective" />
       </div>
