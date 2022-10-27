@@ -130,10 +130,10 @@ function Form({ preverb, person1, version, root, thema, person2, label }) {
   );
 }
 
-function Component({ label, value }) {
+function Component({ label, value, isException, note }) {
   if (value) {
     return (
-      <span>{value}</span>
+      <span class={`${isException ? "text-red-500" : ""}`}>{value}</span>
     );
   } else {
     return null;
