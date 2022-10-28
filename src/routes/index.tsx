@@ -41,9 +41,37 @@ export default function Home({ data }) {
   );
 }
 
-function Entry({ id, value }) {
+function Entry({ id, definition, value }) {
   return (
-    <Table {...value} />
+    <div class="flex-1 flex-col gap-5">
+      <div class="flex-col gap-2">
+        <h2 class="text-xl font-semibold text-slate-500">Definition</h2>
+        <Definition {...definition} />
+      </div>
+      <div class="flex-col gap-2">
+        <h2 class="text-xl font-semibold text-slate-500">Value</h2>
+        <Table {...value} />
+      </div>
+    </div>
+  );
+}
+
+function Definition ({ preverb, version, root, thema }) {
+  return (
+    <div class="flex-1 flex-col gap-1">
+      <Label label="Preverb">
+        <p>{preverb}</p>
+      </Label>
+      <Label label="Version">
+        <p>{version}</p>
+      </Label>
+      <Label label="Root">
+        <p class="font-bold">{root}</p>
+      </Label>
+      <Label label="Thema">
+        <p>{thema}</p>
+      </Label>
+    </div>
   );
 }
 
