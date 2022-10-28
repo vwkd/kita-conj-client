@@ -134,7 +134,7 @@ function Form({ preverb, person1, version, root, thema, modus, person2, label })
 function Component({ label, value, isException, note }) {
   if (value) {
     return (
-      <span class={`${isException ? "text-red-500" : "text-blue-500"}`}>{value}</span>
+      <span class={`${isException ? "text-red-500" : ""}`}>{value}</span>
     );
   } else {
     return null;
