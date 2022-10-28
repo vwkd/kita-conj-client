@@ -33,6 +33,9 @@ fragment form on Form {
   thema {
     ...component
   }
+  modus {
+    ...component
+  }
   person2 {
     ...component
   }

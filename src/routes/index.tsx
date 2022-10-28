@@ -114,7 +114,7 @@ function Screeve({ S1, S2, S3, P1, P2, P3, label }) {
   );
 }
 
-function Form({ preverb, person1, version, root, thema, person2, label }) {
+function Form({ preverb, person1, version, root, thema, modus, person2, label }) {
   return (
     <div class="gap-1 items-baseline">
       <p class="text-sm font-semibold text-slate-500">{label}</p>
@@ -124,6 +124,7 @@ function Form({ preverb, person1, version, root, thema, person2, label }) {
         <Component {...version} />
         <Component {...root} />
         <Component {...thema} />
+        <Component {...modus} />
         <Component {...person2} />
       </p>
     </div>
