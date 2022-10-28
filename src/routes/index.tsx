@@ -44,33 +44,30 @@ export default function Home({ data }) {
 function Entry({ id, definition, value }) {
   return (
     <div class="flex-1 flex-col gap-5">
-      <div class="flex-col gap-2">
-        <h2 class="text-xl font-semibold text-slate-500">Definition</h2>
-        <Definition {...definition} />
-      </div>
-      <div class="flex-col gap-2">
-        <h2 class="text-xl font-semibold text-slate-500">Value</h2>
-        <Table {...value} />
-      </div>
+      <Definition {...definition} />
+      <Table {...value} />
     </div>
   );
 }
 
 function Definition ({ preverb, version, root, thema }) {
   return (
-    <div class="flex-1 flex-col gap-1">
-      <Label label="Preverb">
-        <p>{preverb}</p>
-      </Label>
-      <Label label="Version">
-        <p>{version}</p>
-      </Label>
-      <Label label="Root">
-        <p class="font-bold">{root}</p>
-      </Label>
-      <Label label="Thema">
-        <p>{thema}</p>
-      </Label>
+    <div class="flex-col gap-3">
+      <h2 class="text-xl font-semibold text-slate-500">Definition</h2>
+      <div class="flex-1 flex-col">
+        <Label label="Preverb">
+          <p>{preverb}</p>
+        </Label>
+        <Label label="Version">
+          <p>{version}</p>
+        </Label>
+        <Label label="Root">
+          <p class="font-bold">{root}</p>
+        </Label>
+        <Label label="Thema">
+          <p>{thema}</p>
+        </Label>
+      </div>
     </div>
   );
 }
@@ -78,6 +75,7 @@ function Definition ({ preverb, version, root, thema }) {
 function Table({ SRS1: { GRP1: { PRS, IMPF, PRSSUBJ }, GRP2: { FUT, COND, FUTSUBJ } }, SRS2: { AOR, AORIMPF, OPT, OPTIMPF }, SRS3: { PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF } }) {
   return (
     <div class="flex-col gap-3">
+      <h2 class="text-xl font-semibold text-slate-500">Value</h2>
       <div class="flex-col gap-1">
         <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
         <div class="flex-col gap-1">
