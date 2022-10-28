@@ -1,5 +1,10 @@
-import { Head } from "$fresh/runtime.ts";
+import Layout from "../../components/Layout.tsx";
 import { getEntry } from "../../lib/operations.ts";
+
+const META = name => ({
+  title: `${name} - Kita Conjugator Entry`,
+  description: `Details for the entry "${name}" in Kita Conjugator`,
+});
 
 export const handler = {
   async GET(req, ctx) {
@@ -26,18 +31,18 @@ export const handler = {
 };
 
 export default function Page({ data }) {
+  const { definition, value } = data;
+  const name = definition?.root ?? "Not Found";
+  
   return (
-    <body>
-      <Head>
-        <link rel="stylesheet" href="/reset.css" />
-      </Head>
+    <Layout {...META(name)}>
       <main class="flex-1 flex-col">
-        { data.value
+        { value
           ? <Entry {...data} />
           : <p>No entry found.</p>
         }
       </main>
-    </body>
+    </Layout>
   );
 }
 
