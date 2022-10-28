@@ -4,6 +4,12 @@ export async function getEntry(id) {
   const query = `query getEntry($id: ID!) {
   entry(id: $id) {
     id
+    definition {
+      preverb
+      version
+      root
+      thema
+    }
     value {
       ...table
     }
