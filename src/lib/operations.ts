@@ -121,31 +121,6 @@ fragment table on Table {
       ...screeve
     }
   }
-  IMP {
-    IMPAFF {
-      ...screeve
-    }
-    IMPAFFIMPF {
-      ...screeve
-    }
-    IMPPRB1 {
-      ...screeve
-    }
-    IMPPRB1IMPF {
-      ...screeve
-    }
-    IMPPRB2 {
-      ...screeve
-    }
-  }
-  INF {
-    INF {
-      ...screeve
-    }
-    INFIMPF {
-      ...screeve
-    }
-  }
 }`;
 
   const variables = {
