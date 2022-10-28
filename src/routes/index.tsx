@@ -47,7 +47,7 @@ function Entry({ id, value }) {
   );
 }
 
-function Table({ SRS1: { GRP1: { PRS, IMPF, PRSSUBJ }, GRP2: { FUT, COND, FUTSUBJ } }, SRS2: { AOR, AORIMPF, OPT, OPTIMPF }, SRS3: { PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF }, IMP: { IMPAFF, IMPAFFIMPF, IMPPRB1, IMPPRB1IMPF, IMPPRB2 }, INF: { INF, INFIMPF } }) {
+function Table({ SRS1: { GRP1: { PRS, IMPF, PRSSUBJ }, GRP2: { FUT, COND, FUTSUBJ } }, SRS2: { AOR, AORIMPF, OPT, OPTIMPF }, SRS3: { PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF } }) {
   return (
     <div class="flex-col gap-3">
       <div class="flex-col gap-1">
@@ -80,19 +80,6 @@ function Table({ SRS1: { GRP1: { PRS, IMPF, PRSSUBJ }, GRP2: { FUT, COND, FUTSUB
         <Screeve {...PLUPERFIMPF} label="Pluperfect Imperfective" />
         <Screeve {...PERFSUBJ} label="Perfect Subjunctive" />
         <Screeve {...PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
-      </div>
-      <div class="flex-col gap-1">
-        <h2 class="text-lg font-semibold text-slate-500">Imperative</h2>
-        <Screeve {...IMPAFF} label="Imperative Affirmative" />
-        <Screeve {...IMPAFFIMPF} label="Imperative Affirmative Imperfective" />
-        <Screeve {...IMPPRB1} label="Imperative Prohibitive 1" />
-        <Screeve {...IMPPRB1IMPF} label="Imperative Prohibitive 1 Imperfective" />
-        <Screeve {...IMPPRB2} label="Imperative Prohibitive 2" />
-      </div>
-      <div class="flex-col gap-1">
-        <h2 class="text-lg font-semibold text-slate-500">Infinitive</h2>
-        <Screeve {...INF} label="Infinitive" />
-        <Screeve {...INFIMPF} label="Infinitive Imperfective" />
       </div>
     </div>
   );
