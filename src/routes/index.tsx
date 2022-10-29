@@ -11,7 +11,6 @@ export default function Page() {
       <main class="flex-1 flex-col gap-3">
         <h1 class="text-xl font-bold">Kita Conjugator</h1>
         <p>A Georgian German verb conjugator.</p>
-        <a href="/entry?id=1">First Entry</a>
       </main>
     </Layout>
   );
