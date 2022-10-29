@@ -1,0 +1,32 @@
+name: Update Manifest
+
+on: workflow_dispatch
+      
+jobs:
+  updateManifest:
+  
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    
+    steps:
+    
+      - name: Setup repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+    
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+          
+      - name: Generate fresh.gen.ts
+        run: timeout 30s deno task start || code=$?; if [[ $code -ne 124 && $code -ne 0 ]]; then exit $code; fi
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: fresh manifest
+          title: Update manifest
+          body: Generate fresh manifest
+          branch: manifest
