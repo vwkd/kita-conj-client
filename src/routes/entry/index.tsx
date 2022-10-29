@@ -19,6 +19,10 @@ export const handler = {
     } else {
       try { 
         const entry = await getEntry(id);
+        
+        if (!entry) {
+          return ctx.renderNotFound();
+        }
   
         return ctx.render({ ...entry });
       } catch (e) {
@@ -32,15 +36,12 @@ export const handler = {
 
 export default function Page({ data }) {
   const { definition, value } = data;
-  const name = definition?.root ?? "Not Found";
+  const name = definition.root;
   
   return (
     <Layout {...META(name)}>
       <main class="flex-1 flex-col">
-        { value
-          ? <Entry {...data} />
-          : <p>No entry found.</p>
-        }
+        <Entry {...data} />
       </main>
     </Layout>
   );
