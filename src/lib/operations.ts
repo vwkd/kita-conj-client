@@ -5,6 +5,7 @@ export async function getEntry(id) {
   entry(id: $id) {
     id
     definition {
+      category
       preverb
       version
       root

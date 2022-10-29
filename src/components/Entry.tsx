@@ -7,11 +7,14 @@ export default function Entry({ id, definition, value }) {
   );
 }
 
-function Definition({ preverb, version, root, thema }) {
+function Definition({ category, preverb, version, root, thema }) {
   return (
     <div class="flex-col gap-3">
       <h2 class="text-xl font-semibold text-slate-500">Definition</h2>
       <div class="flex-1 flex-col">
+        <Label label="Category">
+          <p>{category}</p>
+        </Label>
         <Label label="Preverb">
           <p>{preverb}</p>
         </Label>
