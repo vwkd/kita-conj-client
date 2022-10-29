@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout.tsx";
 import Entry from "../../components/Entry.tsx";
 import { getEntry } from "../../lib/operations.ts";
+import { log } from "$utils/logger.ts";
 
 const META = name => ({
   title: `${name} - Kita Conjugator Entry`,
@@ -27,6 +28,7 @@ export const handler = {
   
         return ctx.render({ ...entry });
       } catch (e) {
+        log.error(e);
         return new Response("Internal Server Error", {
           status: 500,
         });
