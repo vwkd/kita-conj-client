@@ -69,64 +69,84 @@ fragment screeve on Screeve {
   }
 }
 
+fragment grp1 on GRP1 {
+  PRS {
+    ...screeve
+  }
+  IMPF {
+    ...screeve
+  }
+  PRSSUBJ {
+    ...screeve
+  }
+}
+
+fragment grp2 on GRP2 {
+  FUT {
+    ...screeve
+  }
+  COND {
+    ...screeve
+  }
+  FUTSUBJ {
+    ...screeve
+  }
+}
+
+fragment srs1 on SRS1 {
+  GRP1 {
+    ...grp1
+  }
+  GRP2 {
+    ...grp2
+  }
+}
+
+fragment srs2 on SRS2 {
+  AOR {
+    ...screeve
+  }
+  AORIMPF {
+    ...screeve
+  }
+  OPT {
+    ...screeve
+  }
+  OPTIMPF {
+    ...screeve
+  }
+}
+
+fragment srs3 on SRS3 {
+  PERF {
+    ...screeve
+  }
+  PERFIMPF {
+    ...screeve
+  }
+  PLUPERF {
+    ...screeve
+  }
+  PLUPERFIMPF {
+    ...screeve
+  }
+  PERFSUBJ {
+    ...screeve
+  }
+  PERFSUBJIMPF {
+    ...screeve
+  }
+}
+
 fragment table on Table {
   SRS1 {
-    GRP1 {
-      PRS {
-        ...screeve
-      }
-      IMPF {
-        ...screeve
-      }
-      PRSSUBJ {
-        ...screeve
-      }
-    }
-    GRP2 {
-      FUT {
-        ...screeve
-      }
-      COND {
-        ...screeve
-      }
-      FUTSUBJ {
-        ...screeve
-      }
-    }
+    ...srs1
   }
   SRS2 {
-    AOR {
-      ...screeve
-    }
-    AORIMPF {
-      ...screeve
-    }
-    OPT {
-      ...screeve
-    }
-    OPTIMPF {
-      ...screeve
-    }
+    ...srs2
   }
   SRS3 {
-    PERF {
-      ...screeve
-    }
-    PERFIMPF {
-      ...screeve
-    }
-    PLUPERF {
-      ...screeve
-    }
-    PLUPERFIMPF {
-      ...screeve
-    }
-    PERFSUBJ {
-      ...screeve
-    }
-    PERFSUBJIMPF {
-      ...screeve
-    }
+    ...srs3
   }
 }`;
 
