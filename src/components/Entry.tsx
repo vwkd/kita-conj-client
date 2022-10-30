@@ -2,7 +2,7 @@ export default function Entry({ id, definition, value }) {
   return (
     <div class="flex-1 flex-col gap-5">
       <Definition {...definition} />
-      <Table {...value} />
+      <TableOrException value={value} />
     </div>
   );
 }
@@ -32,13 +32,36 @@ function Definition({ category, preverb, version, root, thema }) {
   );
 }
 
-function Table({ SRS1, SRS2, SRS3 }) {
+function TableOrException({ value }) {
   return (
     <div class="flex-col gap-3">
       <h2 class="text-xl font-semibold text-slate-500">Value</h2>
-      <SRS1_ {...SRS1} />
-      <SRS2_ {...SRS2} />
-      <SRS3_ {...SRS3} />
+      { value.note
+        ? <Exception {...value} />
+        : <Table {...value} />
+      }
+    </div>
+  );
+}
+
+function Table({ SRS1, SRS2, SRS3 }) {
+  return (
+    <div class="flex-col gap-2">
+      <SRS1OrException value={SRS1} />
+      <SRS2OrException value={SRS2} />
+      <SRS3OrException value={SRS3} />
+    </div>
+  );
+}
+
+function SRS1OrException({ value }) {
+  return (
+    <div class="flex-col gap-2">
+      <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
+      { value.note
+        ? <Exception {...value} />
+        : <SRS1_ {...value} />
+      }
     </div>
   );
 }
@@ -46,9 +69,20 @@ function Table({ SRS1, SRS2, SRS3 }) {
 function SRS1_({ GRP1, GRP2 }) {
   return (
     <div class="flex-col gap-1">
-      <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
-      <GRP1_ {...GRP1} />
-      <GRP2_ {...GRP2} />
+      <GRP1OrException value={GRP1} />
+      <GRP2OrException value={GRP2} />
+    </div>
+  );
+}
+
+function GRP1OrException({ value }) {
+  return (
+    <div class="flex-col gap-1">
+      <h3 class="font-semibold text-slate-500">Group 1</h3>
+      { value.note
+        ? <Exception {...value} />
+        : <GRP1_ {...value} />
+      }
     </div>
   );
 }
@@ -56,10 +90,21 @@ function SRS1_({ GRP1, GRP2 }) {
 function GRP1_({ PRS, IMPF, PRSSUBJ }) {
   return (
     <div class="flex-col gap-1">
-      <h3 class="font-semibold text-slate-500">Group 1</h3>
-      <Screeve {...PRS} label="Present" />
-      <Screeve {...IMPF} label="Imperfect" />
-      <Screeve {...PRSSUBJ} label="Present Subjunctive" />
+      <ScreeveOrException Screeve={Screeve} value={PRS} label="Present" />
+      <ScreeveOrException value={IMPF} label="Imperfect" />
+      <ScreeveOrException value={PRSSUBJ} label="Present Subjunctive" />
+    </div>
+  );
+}
+
+function GRP2OrException({ value }) {
+  return (
+    <div class="flex-col gap-1">
+      <h3 class="font-semibold text-slate-500">Group 2</h3>
+      { value.note
+        ? <Exception {...value} />
+        : <GRP2_ {...value} />
+      }
     </div>
   );
 }
@@ -67,10 +112,21 @@ function GRP1_({ PRS, IMPF, PRSSUBJ }) {
 function GRP2_({ FUT, COND, FUTSUBJ }) {
   return (
     <div class="flex-col gap-1">
-      <h3 class="font-semibold text-slate-500">Group 2</h3>
-      <Screeve {...FUT} label="Future" />
-      <Screeve {...COND} label="Conditional" />
-      <Screeve {...FUTSUBJ} label="Future Subjunctive" />
+      <ScreeveOrException value={FUT} label="Future" />
+      <ScreeveOrException value={COND} label="Conditional" />
+      <ScreeveOrException value={FUTSUBJ} label="Future Subjunctive" />
+    </div>
+  );
+}
+
+function SRS2OrException({ value }) {
+  return (
+    <div class="flex-col gap-2">
+      <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
+      { value.note
+        ? <Exception {...value} />
+        : <SRS2_ {...value} />
+      }
     </div>
   );
 }
@@ -78,11 +134,22 @@ function GRP2_({ FUT, COND, FUTSUBJ }) {
 function SRS2_({ AOR, AORIMPF, OPT, OPTIMPF }) {
   return (
     <div class="flex-col gap-1">
-      <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
-      <Screeve {...AOR} label="Aorist" />
-      <Screeve {...AORIMPF} label="Aorist Imperfective" />
-      <Screeve {...OPT} label="Optative" />
-      <Screeve {...OPTIMPF} label="Optative Imperfective" />
+      <ScreeveOrException value={AOR} label="Aorist" />
+      <ScreeveOrException value={AORIMPF} label="Aorist Imperfective" />
+      <ScreeveOrException value={OPT} label="Optative" />
+      <ScreeveOrException value={OPTIMPF} label="Optative Imperfective" />
+    </div>
+  );
+}
+
+function SRS3OrException({ value }) {
+  return (
+    <div class="flex-col gap-2">
+      <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
+      { value.note
+        ? <Exception {...value} />
+        : <SRS3_ {...value} />
+      }
     </div>
   );
 }
@@ -90,57 +157,92 @@ function SRS2_({ AOR, AORIMPF, OPT, OPTIMPF }) {
 function SRS3_({ PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF }) {
   return (
     <div class="flex-col gap-1">
-      <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
-      <Screeve {...PERF} label="Perfect" />
-      <Screeve {...PERFIMPF} label="Perfect Imperfective" />
-      <Screeve {...PLUPERF} label="Pluperfect" />
-      <Screeve {...PLUPERFIMPF} label="Pluperfect Imperfective" />
-      <Screeve {...PERFSUBJ} label="Perfect Subjunctive" />
-      <Screeve {...PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
+      <ScreeveOrException value={PERF} label="Perfect" />
+      <ScreeveOrException value={PERFIMPF} label="Perfect Imperfective" />
+      <ScreeveOrException value={PLUPERF} label="Pluperfect" />
+      <ScreeveOrException value={PLUPERFIMPF} label="Pluperfect Imperfective" />
+      <ScreeveOrException value={PERFSUBJ} label="Perfect Subjunctive" />
+      <ScreeveOrException value={PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
     </div>
   );
 }
 
-function Screeve({ S1, S2, S3, P1, P2, P3, label }) {
+function ScreeveOrException({ value, label }) {
   return (
     <div class="flex-col gap-1">
       <h4 class="text-sm font-semibold text-slate-500">{label}</h4>
-      <div class="flex-col">
-        <Form {...S1} label="S1" />
-        <Form {...S2} label="S2" />
-        <Form {...S3} label="S3" />
-        <Form {...P1} label="P1" />
-        <Form {...P2} label="P2" />
-        <Form {...P3} label="P3" />
-      </div>
+      { value.note
+        ? <Exception {...value} />
+        : <Screeve {...value} />
+      }
     </div>
   );
 }
 
-function Form({ preverb, person1, version, root, thema, modus, person2, label }) {
+function Screeve({ S1, S2, S3, P1, P2, P3 }) {
   return (
-    <Label label={label}>
-      <p>
-        <Component {...preverb} label="Preverb" />
-        <Component {...person1} label="Person1" />
-        <Component {...version} label="Version" />
-        <Component {...root} label="Root" />
-        <Component {...thema} label="Thema" />
-        <Component {...modus} label="Modus" />
-        <Component {...person2} label="Person2" />
-      </p>
-    </Label>
+    <div class="flex-col">
+      <FormOrException value={S1} label="S1" />
+      <FormOrException value={S2} label="S2" />
+      <FormOrException value={S3} label="S3" />
+      <FormOrException value={P1} label="P1" />
+      <FormOrException value={P2} label="P2" />
+      <FormOrException value={P3} label="P3" />
+    </div>
   );
 }
 
-function Component({ value, isException, note, label }) {
+function FormOrException({ value, label }) {
+  return (
+    <div class="flex-1 gap-3 items-baseline">
+      <p class="text-sm font-semibold text-slate-500">{label}</p>
+      { value.note
+        ? <Exception {...value} />
+        : <Form {...value} />
+      }
+    </div>
+  );
+}
+
+function Form({ preverb, person1, version, root, thema, modus, person2 }) {
+  return (
+    <p>
+      <ComponentOrException value={preverb} label="Preverb" />
+      <ComponentOrException value={person1} label="Person1" />
+      <ComponentOrException value={version} label="Version" />
+      <ComponentOrException value={root} label="Root" />
+      <ComponentOrException value={thema} label="Thema" />
+      <ComponentOrException value={modus} label="Modus" />
+      <ComponentOrException value={person2} label="Person2" />
+    </p>
+  );
+}
+
+function ComponentOrException({ value, label }) {
+  return (
+    <>
+    { value.note
+      ? <Exception {...value} />
+      : <Component {...value} />
+    }
+    </>
+  );
+}
+
+function Component({ value, label }) {
   if (value) {
     return (
-      <span class={`${isException ? "text-red-500" : ""}`}>{value}</span>
+      <span>{value}</span>
     );
   } else {
     return null;
   }
+}
+
+function Exception({ value, note }) {
+  return (
+    <span class="text-red-500">{value}</span>
+  );
 }
 
 function Label({ label, children }) {
