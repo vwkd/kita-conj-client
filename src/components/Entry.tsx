@@ -230,13 +230,9 @@ function ComponentOrException({ value, label }) {
 }
 
 function Component({ value, label }) {
-  if (value) {
-    return (
-      <span>{value}</span>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <span>{value}</span>
+  );
 }
 
 function Exception({ value, note }) {
