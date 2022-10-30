@@ -32,41 +32,71 @@ function Definition({ category, preverb, version, root, thema }) {
   );
 }
 
-function Table({ SRS1: { GRP1: { PRS, IMPF, PRSSUBJ }, GRP2: { FUT, COND, FUTSUBJ } }, SRS2: { AOR, AORIMPF, OPT, OPTIMPF }, SRS3: { PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF } }) {
+function Table({ SRS1, SRS2, SRS3 }) {
   return (
     <div class="flex-col gap-3">
       <h2 class="text-xl font-semibold text-slate-500">Value</h2>
-      <div class="flex-col gap-1">
-        <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
-        <div class="flex-col gap-1">
-          <h3 class="font-semibold text-slate-500">Group 1</h3>
-          <Screeve {...PRS} label="Present" />
-          <Screeve {...IMPF} label="Imperfect" />
-          <Screeve {...PRSSUBJ} label="Present Subjunctive" />
-        </div>
-        <div class="flex-col gap-1">
-          <h3 class="font-semibold text-slate-500">Group 2</h3>
-          <Screeve {...FUT} label="Future" />
-          <Screeve {...COND} label="Conditional" />
-          <Screeve {...FUTSUBJ} label="Future Subjunctive" />
-        </div>
-      </div>
-      <div class="flex-col gap-1">
-        <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
-        <Screeve {...AOR} label="Aorist" />
-        <Screeve {...AORIMPF} label="Aorist Imperfective" />
-        <Screeve {...OPT} label="Optative" />
-        <Screeve {...OPTIMPF} label="Optative Imperfective" />
-      </div>
-      <div class="flex-col gap-1">
-        <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
-        <Screeve {...PERF} label="Perfect" />
-        <Screeve {...PERFIMPF} label="Perfect Imperfective" />
-        <Screeve {...PLUPERF} label="Pluperfect" />
-        <Screeve {...PLUPERFIMPF} label="Pluperfect Imperfective" />
-        <Screeve {...PERFSUBJ} label="Perfect Subjunctive" />
-        <Screeve {...PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
-      </div>
+      <SRS1_ {...SRS1} />
+      <SRS2_ {...SRS2} />
+      <SRS3_ {...SRS3} />
+    </div>
+  );
+}
+
+function SRS1_({ GRP1, GRP2 }) {
+  return (
+    <div class="flex-col gap-1">
+      <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
+      <GRP1_ {...GRP1} />
+      <GRP2_ {...GRP2} />
+    </div>
+  );
+}
+
+function GRP1_({ PRS, IMPF, PRSSUBJ }) {
+  return (
+    <div class="flex-col gap-1">
+      <h3 class="font-semibold text-slate-500">Group 1</h3>
+      <Screeve {...PRS} label="Present" />
+      <Screeve {...IMPF} label="Imperfect" />
+      <Screeve {...PRSSUBJ} label="Present Subjunctive" />
+    </div>
+  );
+}
+
+function GRP2_({ FUT, COND, FUTSUBJ }) {
+  return (
+    <div class="flex-col gap-1">
+      <h3 class="font-semibold text-slate-500">Group 2</h3>
+      <Screeve {...FUT} label="Future" />
+      <Screeve {...COND} label="Conditional" />
+      <Screeve {...FUTSUBJ} label="Future Subjunctive" />
+    </div>
+  );
+}
+
+function SRS2_({ AOR, AORIMPF, OPT, OPTIMPF }) {
+  return (
+    <div class="flex-col gap-1">
+      <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
+      <Screeve {...AOR} label="Aorist" />
+      <Screeve {...AORIMPF} label="Aorist Imperfective" />
+      <Screeve {...OPT} label="Optative" />
+      <Screeve {...OPTIMPF} label="Optative Imperfective" />
+    </div>
+  );
+}
+
+function SRS3_({ PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF }) {
+  return (
+    <div class="flex-col gap-1">
+      <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
+      <Screeve {...PERF} label="Perfect" />
+      <Screeve {...PERFIMPF} label="Perfect Imperfective" />
+      <Screeve {...PLUPERF} label="Pluperfect" />
+      <Screeve {...PLUPERFIMPF} label="Pluperfect Imperfective" />
+      <Screeve {...PERFSUBJ} label="Perfect Subjunctive" />
+      <Screeve {...PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
     </div>
   );
 }
