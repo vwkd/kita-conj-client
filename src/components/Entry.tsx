@@ -91,19 +91,19 @@ function Form({ preverb, person1, version, root, thema, modus, person2, label })
   return (
     <Label label={label}>
       <p>
-        <Component {...preverb} />
-        <Component {...person1} />
-        <Component {...version} />
-        <Component {...root} />
-        <Component {...thema} />
-        <Component {...modus} />
-        <Component {...person2} />
+        <Component {...preverb} label="Preverb" />
+        <Component {...person1} label="Person1" />
+        <Component {...version} label="Version" />
+        <Component {...root} label="Root" />
+        <Component {...thema} label="Thema" />
+        <Component {...modus} label="Modus" />
+        <Component {...person2} label="Person2" />
       </p>
     </Label>
   );
 }
 
-function Component({ label, value, isException, note }) {
+function Component({ value, isException, note, label }) {
   if (value) {
     return (
       <span class={`${isException ? "text-red-500" : ""}`}>{value}</span>

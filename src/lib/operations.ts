@@ -18,7 +18,6 @@ export async function getEntry(id) {
 }
 
 fragment component on Component {
-  label
   value
   isException
   note
