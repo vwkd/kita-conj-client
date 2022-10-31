@@ -199,7 +199,7 @@ function FormOrException({ value, label }) {
     <tr class="col-span-full grid items-baseline" style="grid-template-columns: subgrid;">
       <th class="text-sm font-semibold text-slate-500">{label}</th>
       { value.note
-        ? <Exception {...value} />
+        ? <FormException {...value} />
         : <Form {...value} />
       }
     </tr>
@@ -240,6 +240,14 @@ function Component({ value, label }) {
 function Exception({ value, note }) {
   return (
     <span class="text-red-500">{note}</span>
+  );
+}
+
+function FormException({ value, note }) {
+  return (
+    <td class="col-start-2 col-end-9">
+      <span class="text-red-500">{note}</span>
+    </td>
   );
 }
 
