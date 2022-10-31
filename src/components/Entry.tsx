@@ -239,21 +239,21 @@ function Component({ value, label }) {
 
 function Exception({ value, note }) {
   return (
-    <span class="text-red-500">{note}</span>
+    <span class="bg-red-700 bg-opacity-20">{note}</span>
   );
 }
 
 function FormException({ value, note }) {
   return (
     <td class="col-start-2 col-end-9">
-      <span class="text-red-500">{note}</span>
+      <span class="bg-red-700 bg-opacity-20">{note}</span>
     </td>
   );
 }
 
 function ComponentException({ value, note }) {
   return (
-    <span class="text-red-500">{value}</span>
+    <span class="bg-red-700 bg-opacity-20">{value}</span>
   );
 }
 
