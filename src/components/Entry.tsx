@@ -224,7 +224,7 @@ function ComponentOrException({ value, label }) {
   return (
     <>
     { value.note
-      ? <Exception {...value} />
+      ? <ComponentException {...value} />
       : <Component {...value} />
     }
     </>
@@ -238,6 +238,12 @@ function Component({ value, label }) {
 }
 
 function Exception({ value, note }) {
+  return (
+    <span class="text-red-500">{note}</span>
+  );
+}
+
+function ComponentException({ value, note }) {
   return (
     <span class="text-red-500">{value}</span>
   );
