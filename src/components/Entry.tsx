@@ -181,32 +181,34 @@ function ScreeveOrException({ value, label }) {
 
 function Screeve({ S1, S2, S3, P1, P2, P3 }) {
   return (
-    <div class="flex-col">
-      <FormOrException value={S1} label="S1" />
-      <FormOrException value={S2} label="S2" />
-      <FormOrException value={S3} label="S3" />
-      <FormOrException value={P1} label="P1" />
-      <FormOrException value={P2} label="P2" />
-      <FormOrException value={P3} label="P3" />
-    </div>
+    <table class="flex-col">
+      <tbody class="flex-col">
+        <FormOrException value={S1} label="S1" />
+        <FormOrException value={S2} label="S2" />
+        <FormOrException value={S3} label="S3" />
+        <FormOrException value={P1} label="P1" />
+        <FormOrException value={P2} label="P2" />
+        <FormOrException value={P3} label="P3" />
+      </tbody>
+    </table>
   );
 }
 
 function FormOrException({ value, label }) {
   return (
-    <div class="flex-1 gap-3 items-baseline">
-      <p class="text-sm font-semibold text-slate-500">{label}</p>
+    <tr class="flex-1 gap-3 items-baseline">
+      <th class="text-sm font-semibold text-slate-500">{label}</th>
       { value.note
         ? <Exception {...value} />
         : <Form {...value} />
       }
-    </div>
+    </tr>
   );
 }
 
 function Form({ preverb, person1, version, root, thema, modus, person2 }) {
   return (
-    <p>
+    <td>
       <ComponentOrException value={preverb} label="Preverb" />
       <ComponentOrException value={person1} label="Person1" />
       <ComponentOrException value={version} label="Version" />
@@ -214,7 +216,7 @@ function Form({ preverb, person1, version, root, thema, modus, person2 }) {
       <ComponentOrException value={thema} label="Thema" />
       <ComponentOrException value={modus} label="Modus" />
       <ComponentOrException value={person2} label="Person2" />
-    </p>
+    </td>
   );
 }
 
