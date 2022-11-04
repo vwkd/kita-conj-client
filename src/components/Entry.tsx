@@ -233,27 +233,27 @@ function ComponentOrException({ value, label }) {
 
 function Component({ value, label }) {
   return (
-    <span>{value}</span>
+    <span>{value ?? "-"}</span>
   );
 }
 
 function Exception({ value, note }) {
   return (
-    <span class="bg-red-700 bg-opacity-20">{note}</span>
+    <span class="text-red-700">{value ?? "-"}</span>
   );
 }
 
 function FormException({ value, note }) {
   return (
     <td class="col-start-2 col-end-9">
-      <span class="bg-red-700 bg-opacity-20">{note}</span>
+      <span class="text-red-700">{value ?? "-"}</span>
     </td>
   );
 }
 
 function ComponentException({ value, note }) {
   return (
-    <span class="bg-red-700 bg-opacity-20">{value}</span>
+    <span class="text-red-700">{value ?? "-"}</span>
   );
 }
 
