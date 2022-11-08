@@ -10,6 +10,7 @@ export async function getEntry(id) {
       version
       root
       thema
+      obj
     }
     value {
       ...exception
@@ -58,7 +59,7 @@ fragment form on Form {
   }
 }
 
-fragment screeve on Screeve {
+fragment subject on Subject {
   S1 {
     ...exception
     ...form
@@ -82,6 +83,33 @@ fragment screeve on Screeve {
   P3 {
     ...exception
     ...form
+  }
+}
+
+fragment screeve on Screeve {
+  S1 {
+    ...exception
+    ...subject
+  }
+  S2 {
+    ...exception
+    ...subject
+  }
+  S3 {
+    ...exception
+    ...subject
+  }
+  P1 {
+    ...exception
+    ...subject
+  }
+  P2 {
+    ...exception
+    ...subject
+  }
+  P3 {
+    ...exception
+    ...subject
   }
 }
 
