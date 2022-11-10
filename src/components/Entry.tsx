@@ -219,10 +219,11 @@ function Subject({ S1, S2, S3, P1, P2, P3 }) {
           <th>Root</th>
           <th>Thema</th>
           <th>Modus</th>
+          <th>Perfect2</th>
           <th>Person2</th>
         </tr>
       </thead>
-      <tbody class="grid gap-x-0.5 justify-start" style="grid-template-rows: repeat(6, max-content); grid-template-columns: repeat(8, max-content);">
+      <tbody class="grid gap-x-0.5 justify-start" style="grid-template-rows: repeat(6, max-content); grid-template-columns: repeat(9, max-content);">
         <FormOrException value={S1} label="S1" />
         <FormOrException value={S2} label="S2" />
         <FormOrException value={S3} label="S3" />
@@ -246,7 +247,7 @@ function FormOrException({ value, label }) {
   );
 }
 
-function Form({ preverb, person1, version, root, thema, modus, person2 }) {
+function Form({ preverb, person1, version, root, thema, modus, perfect2, person2 }) {
   return (
     <>
       <ComponentOrException value={preverb} label="Preverb" />
@@ -255,6 +256,7 @@ function Form({ preverb, person1, version, root, thema, modus, person2 }) {
       <ComponentOrException value={root} label="Root" />
       <ComponentOrException value={thema} label="Thema" />
       <ComponentOrException value={modus} label="Modus" />
+      <ComponentOrException value={perfect2} label="Perfect2" />
       <ComponentOrException value={person2} label="Person2" />
     </>
   );
@@ -285,7 +287,7 @@ function Exception({ value, note }) {
 
 function FormException({ value, note }) {
   return (
-    <td colspan="7" class="col-span-7 justify-center">
+    <td colspan="8" class="col-span-8 justify-center">
       <span class="text-red-700">{value ?? "-"}</span>
     </td>
   );

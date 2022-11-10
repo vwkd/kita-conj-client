@@ -53,6 +53,10 @@ fragment form on Form {
     ...exception
     ...component
   }
+  perfect2 {
+    ...exception
+    ...component
+  }
   person2 {
     ...exception
     ...component
