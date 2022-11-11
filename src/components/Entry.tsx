@@ -10,7 +10,7 @@ export default function Entry({ id, definition, value }) {
 function Definition({ category, preverb, version, root, thema, obj }) {
   return (
     <div class="flex-col gap-3">
-      <h2 class="text-xl font-semibold text-slate-500">Definition</h2>
+      <h1 class="text-xl font-semibold text-slate-500">Definition</h1>
       <div class="flex-1 flex-col">
         <Label label="Category">
           <p>{category}</p>
@@ -38,7 +38,7 @@ function Definition({ category, preverb, version, root, thema, obj }) {
 function TableOrException({ value }) {
   return (
     <div class="flex-col gap-3">
-      <h2 class="text-xl font-semibold text-slate-500">Value</h2>
+      <h1 class="text-xl font-semibold text-slate-500">Value</h1>
       { value.note
         ? <Exception {...value} />
         : <Table {...value} />
