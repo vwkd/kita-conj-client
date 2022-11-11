@@ -163,15 +163,7 @@ fragment srs2 on SRS2 {
     ...exception
     ...screeve
   }
-  AORIMPF {
-    ...exception
-    ...screeve
-  }
   OPT {
-    ...exception
-    ...screeve
-  }
-  OPTIMPF {
     ...exception
     ...screeve
   }
@@ -182,23 +174,11 @@ fragment srs3 on SRS3 {
     ...exception
     ...screeve
   }
-  PERFIMPF {
-    ...exception
-    ...screeve
-  }
   PLUPERF {
     ...exception
     ...screeve
   }
-  PLUPERFIMPF {
-    ...exception
-    ...screeve
-  }
   PERFSUBJ {
-    ...exception
-    ...screeve
-  }
-  PERFSUBJIMPF {
     ...exception
     ...screeve
   }

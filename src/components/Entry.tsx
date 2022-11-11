@@ -134,13 +134,11 @@ function SRS2OrException({ value }) {
   );
 }
 
-function SRS2_({ AOR, AORIMPF, OPT, OPTIMPF }) {
+function SRS2_({ AOR, OPT }) {
   return (
     <div class="flex-col gap-3">
       <ScreeveOrException value={AOR} label="Aorist" />
-      <ScreeveOrException value={AORIMPF} label="Aorist Imperfective" />
       <ScreeveOrException value={OPT} label="Optative" />
-      <ScreeveOrException value={OPTIMPF} label="Optative Imperfective" />
     </div>
   );
 }
@@ -157,15 +155,12 @@ function SRS3OrException({ value }) {
   );
 }
 
-function SRS3_({ PERF, PERFIMPF, PLUPERF, PLUPERFIMPF, PERFSUBJ, PERFSUBJIMPF }) {
+function SRS3_({ PERF, PLUPERF, PERFSUBJ }) {
   return (
     <div class="flex-col gap-3">
       <ScreeveOrException value={PERF} label="Perfect" />
-      <ScreeveOrException value={PERFIMPF} label="Perfect Imperfective" />
       <ScreeveOrException value={PLUPERF} label="Pluperfect" />
-      <ScreeveOrException value={PLUPERFIMPF} label="Pluperfect Imperfective" />
       <ScreeveOrException value={PERFSUBJ} label="Perfect Subjunctive" />
-      <ScreeveOrException value={PERFSUBJIMPF} label="Perfect Subjunctive Imperfective" />
     </div>
   );
 }
