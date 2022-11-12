@@ -16,7 +16,7 @@ export async function gql_op({ query, variables, operationName, returnKey }) {
   if (response.errors) {
     throw new Error("gql_op errors", response.errors);
   }
-  
+
   const data = response.data[returnKey];
 
   return data;

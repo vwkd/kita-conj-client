@@ -1,6 +1,6 @@
 import Layout from "../components/Layout.tsx";
 
-const META = name => ({
+const META = (name) => ({
   title: `${name} Not Found`,
   description: `${name} not found`,
 });

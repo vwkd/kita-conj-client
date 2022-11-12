@@ -7,7 +7,9 @@ export default function Entry({ id, definition, value }) {
   );
 }
 
-function Definition({ category, preverb, version, root, root_srs2, thema, obj }) {
+function Definition(
+  { category, preverb, version, root, root_srs2, thema, obj },
+) {
   return (
     <div class="flex-col gap-3">
       <h1 class="text-xl font-semibold text-slate-500">Definition</h1>
@@ -42,10 +44,7 @@ function TableOrException({ value }) {
   return (
     <div class="flex-col gap-3">
       <h1 class="text-xl font-semibold text-slate-500">Value</h1>
-      { value.note
-        ? <Exception {...value} />
-        : <Table {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <Table {...value} />}
     </div>
   );
 }
@@ -64,10 +63,7 @@ function SRS1OrException({ value }) {
   return (
     <div class="flex-col gap-1">
       <h2 class="text-lg font-semibold text-slate-500">Series 1</h2>
-      { value.note
-        ? <Exception {...value} />
-        : <SRS1_ {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <SRS1_ {...value} />}
     </div>
   );
 }
@@ -85,10 +81,7 @@ function GRP1OrException({ value }) {
   return (
     <div class="flex-col gap-1">
       <h3 class="font-semibold text-slate-500">Group 1</h3>
-      { value.note
-        ? <Exception {...value} />
-        : <GRP1_ {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <GRP1_ {...value} />}
     </div>
   );
 }
@@ -107,10 +100,7 @@ function GRP2OrException({ value }) {
   return (
     <div class="flex-col gap-1">
       <h3 class="font-semibold text-slate-500">Group 2</h3>
-      { value.note
-        ? <Exception {...value} />
-        : <GRP2_ {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <GRP2_ {...value} />}
     </div>
   );
 }
@@ -129,10 +119,7 @@ function SRS2OrException({ value }) {
   return (
     <div class="flex-col gap-1">
       <h2 class="text-lg font-semibold text-slate-500">Series 2</h2>
-      { value.note
-        ? <Exception {...value} />
-        : <SRS2_ {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <SRS2_ {...value} />}
     </div>
   );
 }
@@ -150,10 +137,7 @@ function SRS3OrException({ value }) {
   return (
     <div class="flex-col gap-1">
       <h2 class="text-lg font-semibold text-slate-500">Series 3</h2>
-      { value.note
-        ? <Exception {...value} />
-        : <SRS3_ {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <SRS3_ {...value} />}
     </div>
   );
 }
@@ -172,17 +156,17 @@ function ScreeveOrException({ value, label }) {
   return (
     <div class="flex-col gap-1">
       <h4 class="text-sm font-semibold text-slate-500">{label}</h4>
-      { value.note
-        ? <Exception {...value} />
-        : <Screeve {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <Screeve {...value} />}
     </div>
   );
 }
 
 function Screeve({ S1, S2, S3, P1, P2, P3 }) {
   return (
-    <div class="grid gap-7" style="grid-template-columns: repeat(3, max-content);">
+    <div
+      class="grid gap-7"
+      style="grid-template-columns: repeat(3, max-content);"
+    >
       <SubjectOrException value={S1} label="S1" />
       <SubjectOrException value={S2} label="S2" />
       <SubjectOrException value={S3} label="S3" />
@@ -197,10 +181,7 @@ function SubjectOrException({ value, label }) {
   return (
     <div class="flex-col gap-1 align-start">
       <h4 class="self-center text-sm font-semibold text-slate-500">{label}</h4>
-      { value.note
-        ? <Exception {...value} />
-        : <Subject {...value} />
-      }
+      {value.note ? <Exception {...value} /> : <Subject {...value} />}
     </div>
   );
 }
@@ -221,7 +202,10 @@ function Subject({ S1, S2, S3, P1, P2, P3 }) {
           <th>Person2</th>
         </tr>
       </thead>
-      <tbody class="grid gap-x-0.5 justify-start" style="grid-template-rows: repeat(6, max-content); grid-template-columns: repeat(9, max-content);">
+      <tbody
+        class="grid gap-x-0.5 justify-start"
+        style="grid-template-rows: repeat(6, max-content); grid-template-columns: repeat(9, max-content);"
+      >
         <FormOrException value={S1} label="S1" />
         <FormOrException value={S2} label="S2" />
         <FormOrException value={S3} label="S3" />
@@ -235,17 +219,19 @@ function Subject({ S1, S2, S3, P1, P2, P3 }) {
 
 function FormOrException({ value, label }) {
   return (
-    <tr class="col-span-full grid items-baseline" style="grid-template-columns: subgrid;">
+    <tr
+      class="col-span-full grid items-baseline"
+      style="grid-template-columns: subgrid;"
+    >
       <th class="mr-3 text-sm font-semibold text-slate-500">{label}</th>
-      { value.note
-        ? <FormException {...value} />
-        : <Form {...value} />
-      }
+      {value.note ? <FormException {...value} /> : <Form {...value} />}
     </tr>
   );
 }
 
-function Form({ preverb, person1, version, root, thema, modus, perfect2, person2 }) {
+function Form(
+  { preverb, person1, version, root, thema, modus, perfect2, person2 },
+) {
   return (
     <>
       <ComponentOrException value={preverb} label="Preverb" />
@@ -263,24 +249,19 @@ function Form({ preverb, person1, version, root, thema, modus, perfect2, person2
 function ComponentOrException({ value, label }) {
   return (
     <td>
-    { value.note
-      ? <ComponentException {...value} />
-      : <Component {...value} />
-    }
+      {value.note
+        ? <ComponentException {...value} />
+        : <Component {...value} />}
     </td>
   );
 }
 
 function Component({ value, label }) {
-  return (
-    <span>{value ?? "-"}</span>
-  );
+  return <span>{value ?? "-"}</span>;
 }
 
 function Exception({ value, note }) {
-  return (
-    <span class="text-red-700">{value ?? "-"}</span>
-  );
+  return <span class="text-red-700">{value ?? "-"}</span>;
 }
 
 function FormException({ value, note }) {
@@ -292,9 +273,7 @@ function FormException({ value, note }) {
 }
 
 function ComponentException({ value, note }) {
-  return (
-    <span class="text-red-700">{value ?? "-"}</span>
-  );
+  return <span class="text-red-700">{value ?? "-"}</span>;
 }
 
 function Label({ label, children }) {
