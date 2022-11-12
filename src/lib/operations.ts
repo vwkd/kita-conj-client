@@ -9,6 +9,7 @@ export async function getEntry(id) {
       preverb
       version
       root
+      root_srs2
       thema
       obj
     }

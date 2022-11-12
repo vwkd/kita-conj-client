@@ -7,7 +7,7 @@ export default function Entry({ id, definition, value }) {
   );
 }
 
-function Definition({ category, preverb, version, root, thema, obj }) {
+function Definition({ category, preverb, version, root, root_srs2, thema, obj }) {
   return (
     <div class="flex-col gap-3">
       <h1 class="text-xl font-semibold text-slate-500">Definition</h1>
@@ -23,6 +23,9 @@ function Definition({ category, preverb, version, root, thema, obj }) {
         </Label>
         <Label label="Root">
           <p class="font-bold">{root}</p>
+        </Label>
+        <Label label="Root Series 2">
+          <p>{root_srs2}</p>
         </Label>
         <Label label="Thema">
           <p>{thema}</p>
