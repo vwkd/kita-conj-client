@@ -8,6 +8,6 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
-    "$utils/": "https://raw.githubusercontent.com/vwkd/kita-utils/59bcf041c1e7ee6936423e787316dc65c2e5d157/src/"
+    "$utils/": "https://github.com/vwkd/kita-utils/tree/c721ac460a7defbfceaff4ae062c1d4d4b1f193e/src/"
   }
 }
